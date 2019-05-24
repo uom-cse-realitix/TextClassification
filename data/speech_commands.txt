@@ -1,0 +1,42 @@
+count|how many books are there
+count|how many books
+color|what color is this book
+color|book color
+focus|highlight the books
+focus|highlight books
+focus|color the books
+count|how many laptops are there
+count|how many laptops
+color|what color is this laptop
+color|laptop color
+focus|highlight the laptops
+focus|highlight laptops
+focus|color the laptops
+count|how many pens are there
+count|how many pens
+color|what color is this pen
+color|pen color
+focus|highlight the pens
+focus|highlight pens
+focus|color the pens
+count|how many bottles are there
+count|how many bottles
+color|what color is this bottle
+color|bottle color
+focus|highlight the bottles
+focus|highlight bottles
+focus|color the bottles
+count|how many phones are there
+count|how many phones
+color|what color is this phone
+color|phone color
+focus|highlight the phones
+focus|highlight phones
+focus|color the phones
+count|how many cups are there
+count|how many cups
+color|what color is this cup
+color|cup color
+focus|highlight the cups
+focus|highlight cups
+focus|color the cups
