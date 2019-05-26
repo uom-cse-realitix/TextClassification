@@ -7,6 +7,10 @@ The SVM was tested upon three separate algorithms.
 3. RBF
 4. Sigmoid
 
+![SVMs in IRIS dataset](https://scikit-learn.org/0.19/_images/sphx_glr_plot_iris_001.png)
+
+*Different SVM kernels for IRIS dataset* - Source: [scikit-learn docs](https://scikit-learn.org/0.19/auto_examples/svm/plot_iris.html)
+
 ## Linear Kernel
 
 |              | Precision | Recall | F1-Score | Support |
