@@ -24,7 +24,7 @@ The SVM was tested upon three separate algorithms.
 
 ## Polynomial Kernel
 
-|              | Preceision | Recall | F1-Score | Support |
+|              | Precision | Recall | F1-Score | Support |
 |--------------|------------|--------|----------|---------|
 | 0.0          | 1.0        | 1.0    | 1.0      | 12      |
 | 1.0          | 1.0        | 0.55   | 0.71     | 11      |
@@ -46,7 +46,7 @@ The SVM was tested upon three separate algorithms.
 
 ## Sigmoid Kernel
 
-|              | Preceision | Recall | F1-Score | Support |
+|              | Precision | Recall | F1-Score | Support |
 |--------------|------------|--------|----------|---------|
 | 0.0          | 1.0        | 1.0    | 1.0      | 12      |
 | 1.0          | 1.0        | 0.45   | 0.62     | 11      |
