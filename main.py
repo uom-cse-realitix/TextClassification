@@ -11,11 +11,11 @@ words = words_file.read().split('\n')[:-1]
 
 # Arrays to store training dataset
 input_x = np.array([]).reshape(0, 16)
-input_y = np.array([]).reshape(0, 4)
+input_y = np.array([]).reshape(0,1)
 
 # Arrays to store test dataset
 input_x_test = np.array([]).reshape(0, 16)
-input_y_test = np.array([]).reshape(0, 4)
+input_y_test = np.array([]).reshape(0,1)
 
 
 # Calculate a unique decimal value for each sentence
@@ -58,16 +58,16 @@ np.random.shuffle(input_array)
 # Populate training dataset
 for i in ground_truth:
     word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
-    labels = np.array([[0, 0, 0, 0]])
-    labels[0][i[1]] = 1
+    labels = np.array([[0]])
+    labels[0][0] = i[1]
     input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
     input_y_test = np.concatenate((input_y_test, labels), axis=0)
 
 # Populate test dataset
 for i in input_array:
     word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
-    labels = np.array([[0, 0, 0, 0]])
-    labels[0][i[1]] = 1
+    labels = np.array([[0]])
+    labels[0][0] = i[1]
     input_x = np.concatenate((input_x, np.array([word_vector])), axis=0)
     input_y = np.concatenate((input_y, labels), axis=0)
 
@@ -75,5 +75,5 @@ for i in input_array:
 # Save files
 np.savetxt("data/input_x.csv", input_x)
 np.savetxt("data/input_y.csv", input_y)
-np.savetxt("data/input_x_test.csv", input_x)
-np.savetxt("data/input_y_test.csv", input_y)
+np.savetxt("data/input_x_test.csv", input_x_test)
+np.savetxt("data/input_y_test.csv", input_y_test)
