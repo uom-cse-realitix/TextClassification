@@ -1,6 +1,5 @@
 import numpy as np
 
-
 speech_commands_file = open("data/speech_commands.txt", "r")
 words_file = open("data/words.txt", "r")
 

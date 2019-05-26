@@ -10,8 +10,6 @@ command_classes = {'count': 0, 'color': 1, 'focus': 2, 'no_op': 3}
 data_x = np.loadtxt('data/input_x.csv', dtype=float)
 data_y = np.loadtxt('data/input_y.csv', dtype=float)
 
-print("data_x shape: ", data_x.shape, "\ndata_y shape: ", data_y.shape)
-
 data_x_test = np.loadtxt('data/input_x_test.csv', dtype=float)
 data_y_test = np.loadtxt('data/input_y_test.csv', dtype=float)
 
@@ -21,8 +19,6 @@ classifier.fit(data_x, data_y)
 cross_val_score(classifier, data_x_test, data_y_test, scoring='recall_macro')
 
 predictions = classifier.predict(data_x_test)
-print(predictions)
 
-print(confusion_matrix(data_y_test, predictions))
 print(classification_report(data_y_test, predictions))
 
