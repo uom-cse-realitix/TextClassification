@@ -39,6 +39,14 @@ random_numbers = np.append(random_numbers, np.random.choice(range(10000, 65535),
 # Creates an array of invalid commands
 input_array = [[i, 3] for i in random_numbers]
 
+# Populate training dataset
+for i in ground_truth:
+    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
+    labels = np.array([[0]])
+    labels[0][0] = i[1]
+    input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
+    input_y_test = np.concatenate((input_y_test, labels), axis=0)
+
 # Checks whether the input arrays has valid commands
 for i in range(len(input_array)):
     for j in range(len(ground_truth)):
@@ -53,14 +61,6 @@ input_array = input_array + ground_truth
 
 # Shuffle the dataset
 np.random.shuffle(input_array)
-
-# Populate training dataset
-for i in ground_truth:
-    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
-    labels = np.array([[0]])
-    labels[0][0] = i[1]
-    input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
-    input_y_test = np.concatenate((input_y_test, labels), axis=0)
 
 # Populate test dataset
 for i in input_array:
