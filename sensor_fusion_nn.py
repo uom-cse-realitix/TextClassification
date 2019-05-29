@@ -4,13 +4,7 @@ import numpy as np
 
 model = keras.models.load_model("data/sf_nn.h5")
 
-# model.compile(optimizer='adam',
-#               loss='mean_squared_error',
-              # metrics=['accuracy'])
-
-
 print(model.summary())
-
 
 data_x_test = np.loadtxt('data/input_x_test.csv', dtype=float)
 data_y_test = np.loadtxt('data/input_y_test.csv', dtype=float)

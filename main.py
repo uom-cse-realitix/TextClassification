@@ -20,10 +20,19 @@ input_y_test = np.array([]).reshape(0, 4)
 
 # Calculate a unique decimal value for each sentence
 def create_array(phrase):
+
+    # Replace plural words with singular
+    phrase = phrase.replace("books", "book")
+    phrase = phrase.replace("laptops", "laptop")
+    phrase = phrase.replace("phones", "phone")
+    phrase = phrase.replace("cups", "cup")
+    phrase = phrase.replace("bottles", "bottle")
+    phrase = phrase.replace("pens", "pen")
     command = phrase.split('|')
+    phrase_words = command[1].split()
     bin_val = '0b'
-    for i in range(len(words)):
-        bin_val += str((1, 0)[command[1].rfind(words[i]) == -1])
+    for i in words:
+        bin_val += str((1, 0)[phrase_words.count(i) == 0])
 
     return [int(bin_val, 2), command_classes[command[0]]]
 
@@ -40,6 +49,14 @@ random_numbers = np.append(random_numbers, np.random.choice(range(10000, 65535),
 # Creates an array of invalid commands
 input_array = [[i, 3] for i in random_numbers]
 
+# Populate test dataset
+for i in ground_truth:
+    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
+    labels = np.array([[0, 0, 0, 0]])
+    labels[0][i[1]] = 1
+    input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
+    input_y_test = np.concatenate((input_y_test, labels), axis=0)
+
 # Checks whether the input arrays has valid commands
 for i in range(len(input_array)):
     for j in range(len(ground_truth)):
@@ -55,15 +72,8 @@ input_array = input_array + ground_truth
 # Shuffle the dataset
 np.random.shuffle(input_array)
 
-# Populate training dataset
-for i in ground_truth:
-    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
-    labels = np.array([[0, 0, 0, 0]])
-    labels[0][i[1]] = 1
-    input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
-    input_y_test = np.concatenate((input_y_test, labels), axis=0)
 
-# Populate test dataset
+# Populate training dataset
 for i in input_array:
     word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
     labels = np.array([[0, 0, 0, 0]])
@@ -75,5 +85,5 @@ for i in input_array:
 # Save files
 np.savetxt("data/input_x.csv", input_x)
 np.savetxt("data/input_y.csv", input_y)
-np.savetxt("data/input_x_test.csv", input_x)
-np.savetxt("data/input_y_test.csv", input_y)
+np.savetxt("data/input_x_test.csv", input_x_test)
+np.savetxt("data/input_y_test.csv", input_y_test)
