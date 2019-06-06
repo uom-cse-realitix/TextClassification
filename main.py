@@ -10,19 +10,27 @@ words = words_file.read().split('\n')[:-1]
 
 # Arrays to store training dataset
 input_x = np.array([]).reshape(0, 16)
-input_y = np.array([]).reshape(0,1)
+input_y = np.array([]).reshape(0, 1)
 
 # Arrays to store test dataset
 input_x_test = np.array([]).reshape(0, 16)
-input_y_test = np.array([]).reshape(0,1)
+input_y_test = np.array([]).reshape(0, 1)
 
 
 # Calculate a unique decimal value for each sentence
 def create_array(phrase):
+    # Replace plural words with singular
+    phrase = phrase.replace("books", "book")
+    phrase = phrase.replace("laptops", "laptop")
+    phrase = phrase.replace("phones", "phone")
+    phrase = phrase.replace("cups", "cup")
+    phrase = phrase.replace("bottles", "bottle")
+    phrase = phrase.replace("pens", "pen")
     command = phrase.split('|')
+    phrase_words = command[1].split()
     bin_val = '0b'
-    for i in range(len(words)):
-        bin_val += str((1, 0)[command[1].rfind(words[i]) == -1])
+    for i in words:
+        bin_val += str((1, 0)[phrase_words.count(i) == 0])
 
     return [int(bin_val, 2), command_classes[command[0]]]
 
@@ -32,9 +40,11 @@ ground_truth = [create_array(speech_command) for speech_command in speech_comman
 
 # Generates an array of random decimal values between 0 to 65535
 random_numbers = np.random.choice(range(0, 100), 5, replace=False)
-random_numbers = np.append(random_numbers, np.random.choice(range(100, 1000), 15, replace=False))
+random_numbers = np.append(random_numbers, np.random.choice(range(100, 1000), 25, replace=False))
 random_numbers = np.append(random_numbers, np.random.choice(range(1000, 10000), 50, replace=False))
 random_numbers = np.append(random_numbers, np.random.choice(range(10000, 65535), 30, replace=False))
+
+# random_numbers = np.array(range(1, 65535))
 
 # Creates an array of invalid commands
 input_array = [[i, 3] for i in random_numbers]
@@ -69,7 +79,6 @@ for i in input_array:
     labels[0][0] = i[1]
     input_x = np.concatenate((input_x, np.array([word_vector])), axis=0)
     input_y = np.concatenate((input_y, labels), axis=0)
-
 
 # Save files
 np.savetxt("data/input_x.csv", input_x)

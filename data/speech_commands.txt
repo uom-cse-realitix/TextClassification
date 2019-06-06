@@ -40,3 +40,22 @@ color|cup color
 focus|highlight the cups
 focus|highlight cups
 focus|color the cups
+no_op|how
+no_op|many
+no_op|are
+no_op|there
+no_op|what
+no_op|color
+no_op|is
+no_op|this
+no_op|highlight
+no_op|the
+no_op|book
+no_op|cup
+no_op|laptop
+no_op|bottle
+no_op|pen
+no_op|phone
+no_op|how many
+no_op|what is
+no_op|how what
