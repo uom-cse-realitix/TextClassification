@@ -9,11 +9,11 @@ speech_commands = speech_commands_file.read().split('\n')[:-1]
 words = words_file.read().split('\n')[:-1]
 
 # Arrays to store training dataset
-input_x = np.array([]).reshape(0, 16)
+input_x = np.array([]).reshape(0, 21)
 input_y = np.array([]).reshape(0, 1)
 
 # Arrays to store test dataset
-input_x_test = np.array([]).reshape(0, 16)
+input_x_test = np.array([]).reshape(0, 21)
 input_y_test = np.array([]).reshape(0, 1)
 
 
@@ -51,7 +51,9 @@ input_array = [[i, 3] for i in random_numbers]
 
 # Populate training dataset
 for i in ground_truth:
-    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
+    # print(format(i[0], '#023b'))
+    word_vector = [int(j) for j in format(i[0], '#023b').replace('0b', '')]
+    print(word_vector)
     labels = np.array([[0]])
     labels[0][0] = i[1]
     input_x_test = np.concatenate((input_x_test, np.array([word_vector])), axis=0)
@@ -74,7 +76,7 @@ np.random.shuffle(input_array)
 
 # Populate test dataset
 for i in input_array:
-    word_vector = [int(j) for j in format(i[0], '#018b').replace('0b', '')]
+    word_vector = [int(j) for j in format(i[0], '#023b').replace('0b', '')]
     labels = np.array([[0]])
     labels[0][0] = i[1]
     input_x = np.concatenate((input_x, np.array([word_vector])), axis=0)
