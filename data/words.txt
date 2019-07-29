@@ -14,3 +14,8 @@ laptop
 bottle
 pen
 phone
+number
+of
+name
+show
+me

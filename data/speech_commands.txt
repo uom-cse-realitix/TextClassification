@@ -1,9 +1,18 @@
 count|how many books are there
+count|count the number of books
+count|number of books
 count|how many books
+count|count books
+count|what is the number of books
 color|what color is this book
+color|what is the color of this book
+color|name the color of the book
+color|color of the book
 color|book color
 focus|highlight the books
 focus|highlight books
+focus|show books
+focus|show me the books
 focus|color the books
 count|how many laptops are there
 count|how many laptops
@@ -12,31 +21,69 @@ color|laptop color
 focus|highlight the laptops
 focus|highlight laptops
 focus|color the laptops
+focus|show laptops
+focus|show the laptops
+focus|show me the laptops
+color|what is the color of this laptop
 count|how many pens are there
 count|how many pens
 color|what color is this pen
+color|what is the color of this pen
 color|pen color
 focus|highlight the pens
 focus|highlight pens
+focus|highlight the pens
 focus|color the pens
+focus|show me the pens
+focus|show the pens
+focus|show pens
 count|how many bottles are there
+count|count the bottles
 count|how many bottles
 color|what color is this bottle
+color|what is the color of this bottle
+color|what is this bottle color
 color|bottle color
 focus|highlight the bottles
 focus|highlight bottles
 focus|color the bottles
+focus|show bottles
+focus|show me the bottles
 count|how many phones are there
 count|how many phones
 color|what color is this phone
 color|phone color
 focus|highlight the phones
 focus|highlight phones
+focus|show phones
+focus|show me the phones
 focus|color the phones
 count|how many cups are there
 count|how many cups
 color|what color is this cup
 color|cup color
+color|what is the color of this cup
 focus|highlight the cups
+focus|show cups
+focus|show me the cups
 focus|highlight cups
 focus|color the cups
+no_op|how
+no_op|many
+no_op|are
+no_op|there
+no_op|what
+no_op|color
+no_op|is
+no_op|this
+no_op|highlight
+no_op|the
+no_op|book
+no_op|cup
+no_op|laptop
+no_op|bottle
+no_op|pen
+no_op|phone
+no_op|how many
+no_op|what is
+no_op|how what
